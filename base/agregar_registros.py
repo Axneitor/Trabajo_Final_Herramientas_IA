@@ -2,6 +2,7 @@ import sqlite3
 import pandas as pd
 import random
 from faker import Faker
+import os
 
 fake = Faker()
 conn = sqlite3.connect("personas.db")
