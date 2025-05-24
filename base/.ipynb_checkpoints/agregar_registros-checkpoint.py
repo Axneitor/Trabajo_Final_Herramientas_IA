@@ -2,6 +2,7 @@ import sqlite3
 import pandas as pd
 import random
 from faker import Faker
+import os
 
 fake = Faker()
 conn = sqlite3.connect("personas.db")
@@ -20,13 +21,12 @@ for i in lista_personas:
         nombre = fake.first_name()
         apellido = fake.last_name()
         email = fake.email()
-        pais_origen = fake.country()
         ciudad_origen = fake.city()
-        viajes_data.append((id_persona, nombre, apellido, email, pais_origen, ciudad_origen, obtener_dias()))
+        viajes_data.append((id_persona, nombre, apellido, email, ciudad_origen, obtener_dias()))
 
 cursor.executemany("""
-INSERT INTO personas (id_persona, nombre, apellido, mail, pais_origen, ciudad_destino, dias_viaje)
-VALUES (?, ?, ?, ?, ?, ?, ?);
+INSERT INTO personas (id_persona, nombre, apellido, mail, ciudad_destino, dias_viaje)
+VALUES (?, ?, ?, ?, ?, ?);
 """, viajes_data)
 
 conn.commit()

@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-conn = sqlite3.connect("personas2.db")
+conn = sqlite3.connect("personas.db")
 cursor = conn.cursor()
 
 cursor.execute("""
