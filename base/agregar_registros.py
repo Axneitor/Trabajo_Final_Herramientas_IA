@@ -11,7 +11,7 @@ cursor = conn.cursor()
 def obtener_dias():
     return random.randint(1, 100)
 
-# Crear 10 personas ficticias
+# Crear 119390 personas ficticias
 lista_personas = [fake.uuid4() for _ in range(119390)]
 viajes_data = []
 
